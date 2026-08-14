@@ -1,0 +1,47 @@
+{
+  "feature_names": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4"
+  ],
+  "class_names": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "model_files": {
+    "Logistic Regression": "logistic_regression.joblib"
+  },
+  "metrics": {
+    "Logistic Regression": {
+      "Accuracy": 0.9214102093279471,
+      "AUC": 0.9947761798258953,
+      "Precision": 0.9353831528842956,
+      "Recall": 0.9321485699031606,
+      "F1": 0.9335383155807854,
+      "MCC": 0.9050454594545089
+    }
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true
+  }
+}
