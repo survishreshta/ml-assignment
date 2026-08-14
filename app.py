@@ -21,7 +21,7 @@ st.set_page_config(page_title="BeanScope ML Lab", page_icon="🫘", layout="wide
 st.markdown("""
 <style>
 .stApp {background:radial-gradient(circle at 8% 4%,rgba(222,238,202,.9),transparent 24%),radial-gradient(circle at 95% 38%,rgba(244,207,178,.42),transparent 22%),linear-gradient(145deg,#f9fbf7 0%,#edf5e9 52%,#fff8ef 100%);}
-.block-container {max-width:1450px;padding-top:1.5rem;padding-bottom:3rem;}
+.block-container {max-width:none;width:100%;padding:1.5rem 2rem 3rem;}
 [data-testid="stSidebar"] {display:none;}
 [data-testid="stMetric"] {background:linear-gradient(145deg,#fff,#f7fbf4);border:1px solid #cfe0c8;border-top:4px solid #d87855;border-radius:14px;padding:14px;box-shadow:0 7px 22px rgba(35,69,47,.09);}
 .hero {position:relative;overflow:hidden;padding:2.25rem 2.4rem;border-radius:26px;background:radial-gradient(circle at 90% 12%,rgba(235,188,111,.48) 0,transparent 25%),radial-gradient(circle at 75% 120%,rgba(126,164,104,.7) 0,transparent 34%),linear-gradient(120deg,#123923,#315c3f 62%,#5e7d4f);color:white;margin-bottom:1.5rem;box-shadow:0 18px 42px rgba(27,65,42,.22);border-bottom:5px solid #d8835d;}
@@ -41,14 +41,17 @@ div[role="radiogroup"] label {padding:.4rem .55rem;border-radius:9px;}
 .model-grid-card h4 {color:#173c29;margin:0 0 .3rem;font-size:1rem;}.model-grid-card p {color:#627064;font-size:.82rem;line-height:1.35;margin:0 0 .65rem;}
 .model-type {font-size:.68rem;color:#52734d;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
 .mini-score {display:inline-block;background:#f1f6ee;color:#31523a;border-radius:7px;padding:.2rem .42rem;margin-right:.25rem;font-size:.7rem;font-weight:700;}
-.selector-shell {background:linear-gradient(120deg,#fff,#f2f8ed 65%,#fff1e8);border:1px solid #c4d8bb;border-radius:20px;padding:1.15rem 1.3rem .8rem;margin:.55rem 0 1.2rem;box-shadow:0 10px 28px rgba(35,69,47,.1);}
+.selector-shell {width:100%;background:linear-gradient(120deg,#fff,#eef7e8 65%,#fff0e6);border:3px solid #78966b;border-radius:24px;padding:1.6rem 1.8rem 1.4rem;margin:.7rem 0 1.55rem;box-shadow:0 18px 42px rgba(35,69,47,.2);}
 .step-badge {display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;border-radius:50%;background:#315c3f;color:white;font-weight:800;margin-right:.45rem;}
-[data-testid="stSelectbox"] [data-baseweb="select"] > div {background:linear-gradient(110deg,#42633b,#6f8b5d 62%,#879b62) !important;border:1px solid #52734d !important;border-radius:12px !important;min-height:48px;box-shadow:0 7px 18px rgba(23,60,41,.18) !important;}
+[data-testid="stSelectbox"] {width:100% !important;max-width:none !important;margin:.25rem 0 .4rem;}
+[data-testid="stSelectbox"] [data-baseweb="select"] {width:100% !important;max-width:none !important;}
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {background:linear-gradient(110deg,#244f35,#52734d 62%,#78905b) !important;border:4px solid #dcecaf !important;border-radius:20px !important;min-height:118px;padding:0 2rem;box-shadow:0 14px 32px rgba(23,60,41,.34) !important;}
 [data-testid="stSelectbox"] [data-baseweb="select"] > div:hover {background:linear-gradient(110deg,#52734d,#78966b) !important;border-color:#dcecaf !important;}
-[data-testid="stSelectbox"] [data-baseweb="select"] div,[data-testid="stSelectbox"] [data-baseweb="select"] span {color:#fff !important;-webkit-text-fill-color:#fff !important;font-weight:750 !important;}
-[data-testid="stSelectbox"] [data-baseweb="select"] svg {fill:#fff !important;color:#fff !important;}
+[data-testid="stSelectbox"] [data-baseweb="select"] div,[data-testid="stSelectbox"] [data-baseweb="select"] span,[data-testid="stSelectbox"] [data-baseweb="select"] input {color:#fff !important;-webkit-text-fill-color:#fff !important;font-size:2.1rem !important;line-height:1.25 !important;font-weight:850 !important;letter-spacing:.015em;}
+[data-testid="stSelectbox"] [data-baseweb="select"] svg {fill:#fff !important;color:#fff !important;width:40px;height:40px;}
 [data-baseweb="popover"] [role="listbox"] {background:#f3f8f0 !important;border:1px solid #9db694 !important;}
-[data-baseweb="popover"] [role="option"],[data-baseweb="popover"] [role="option"] * {color:#174a2d !important;-webkit-text-fill-color:#174a2d !important;font-weight:650;}
+[data-baseweb="popover"] [role="option"] {min-height:84px;padding:1.1rem 1.55rem !important;}
+[data-baseweb="popover"] [role="option"],[data-baseweb="popover"] [role="option"] * {color:#174a2d !important;-webkit-text-fill-color:#174a2d !important;font-size:1.55rem !important;line-height:1.3 !important;font-weight:750;}
 [data-baseweb="popover"] [role="option"]:hover {background:#d7ead0 !important;}
 [data-baseweb="popover"] [role="option"] {color:#174a2d !important;-webkit-text-fill-color:#174a2d !important;background:#fff !important;}
 [data-baseweb="popover"] [role="option"]:hover,[data-baseweb="popover"] [aria-selected="true"] {background:#dcebd5 !important;color:#0d4225 !important;-webkit-text-fill-color:#0d4225 !important;}
@@ -115,7 +118,7 @@ button[data-testid="stBaseButton-pills"]:hover,button[data-testid="stBaseButton-
     -webkit-text-fill-color:#07552f !important;
     font-weight:800 !important;
 }
-@media (max-width:800px) {.hero h1 {font-size:1.9rem}.block-container {padding-left:1rem;padding-right:1rem}.model-grid-card {min-height:auto}}
+@media (max-width:800px) {.hero h1 {font-size:1.9rem}.block-container {padding-left:1rem;padding-right:1rem}.model-grid-card {min-height:auto}.selector-shell {padding:1.15rem 1rem 1rem}[data-testid="stSelectbox"] [data-baseweb="select"] > div {min-height:88px;padding:0 1.2rem}[data-testid="stSelectbox"] [data-baseweb="select"] div,[data-testid="stSelectbox"] [data-baseweb="select"] span,[data-testid="stSelectbox"] [data-baseweb="select"] input {font-size:1.5rem !important;}}
 </style>
 <div class="hero"><span class="hero-tag">MACHINE LEARNING • MULTICLASS CLASSIFICATION</span><h1>🫘 BeanScope ML Lab</h1><p>Explore six classifiers, upload unseen measurements, and compare predictions across seven dry bean varieties.</p></div>
 """, unsafe_allow_html=True)
@@ -177,6 +180,7 @@ model_name = st.selectbox(
     index=0,
     label_visibility="collapsed",
     placeholder="Choose a classification model",
+    width="stretch",
 )
 st.markdown('</div>', unsafe_allow_html=True)
 
