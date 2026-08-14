@@ -27,7 +27,8 @@
     "SIRA"
   ],
   "model_files": {
-    "Logistic Regression": "logistic_regression.joblib"
+    "Logistic Regression": "logistic_regression.joblib",
+    "Decision Tree": "decision_tree.joblib"
   },
   "metrics": {
     "Logistic Regression": {
@@ -37,6 +38,14 @@
       "Recall": 0.9321485699031606,
       "F1": 0.9335383155807854,
       "MCC": 0.9050454594545089
+    },
+    "Decision Tree": {
+      "Accuracy": 0.8916636063165626,
+      "AUC": 0.9448077115861641,
+      "Precision": 0.9084264722266832,
+      "Recall": 0.9087690296842409,
+      "F1": 0.9084927224045464,
+      "MCC": 0.869058835971552
     }
   },
   "split": {

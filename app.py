@@ -47,12 +47,14 @@ def calculate_metrics(y_true, y_pred, probabilities):
 
 with st.sidebar:
     st.header("Experiment controls")
-    model_name = "Logistic Regression"
-    st.info("Active model: Logistic Regression")
+    model_name = st.selectbox(
+        "Select a classification model",
+        list(META["model_files"]),
+    )
     uploaded = st.file_uploader("Upload test data (CSV)", type=["csv"], help="Use test_data.csv. The Class column is optional for prediction, but required for live evaluation.")
     st.caption("Expected: 16 numeric feature columns; optional `Class` ground-truth column.")
 
-comparison = pd.DataFrame({model_name: META["metrics"][model_name]}).T
+comparison = pd.DataFrame(META["metrics"]).T
 comparison.index.name = "Model"
 tabs = st.tabs(["Live predictions", "Model comparison", "Dataset guide"])
 

@@ -1,4 +1,4 @@
-"""Train and evaluate the Dry Bean Logistic Regression classifier."""
+"""Train and evaluate Dry Bean Logistic Regression and Decision Tree classifiers."""
 
 from pathlib import Path
 import json
@@ -13,6 +13,7 @@ from sklearn.metrics import (
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.tree import DecisionTreeClassifier
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "DryBeanDataset" / "Dry_Bean_Dataset.xlsx"
@@ -33,9 +34,11 @@ def main():
             ("scaler", StandardScaler()),
             ("classifier", LogisticRegression(max_iter=3000, random_state=SEED)),
         ]),
+        "Decision Tree": DecisionTreeClassifier(random_state=SEED),
     }
     filenames = {
         "Logistic Regression": "logistic_regression.joblib",
+        "Decision Tree": "decision_tree.joblib",
     }
 
     model_dir = ROOT / "model"
