@@ -1,4 +1,4 @@
-"""Train and evaluate five Dry Bean classification models."""
+"""Train and evaluate six Dry Bean classification models."""
 
 from pathlib import Path
 import json
@@ -16,6 +16,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,6 +52,10 @@ def main():
             random_state=SEED,
             n_jobs=-1,
         ),
+        "Support Vector Machine": Pipeline([
+            ("scaler", StandardScaler()),
+            ("classifier", SVC(kernel="rbf", probability=True, random_state=SEED)),
+        ]),
     }
     filenames = {
         "Logistic Regression": "logistic_regression.joblib",
@@ -58,6 +63,7 @@ def main():
         "k-Nearest Neighbors": "knn.joblib",
         "Gaussian Naive Bayes": "gaussian_nb.joblib",
         "Random Forest (Ensemble)": "random_forest.joblib",
+        "Support Vector Machine": "svm.joblib",
     }
 
     model_dir = ROOT / "model"
