@@ -1,4 +1,4 @@
-"""Train and evaluate Dry Bean Logistic Regression and Decision Tree classifiers."""
+"""Train and evaluate four Dry Bean classification models."""
 
 from pathlib import Path
 import json
@@ -11,6 +11,8 @@ from sklearn.metrics import (
     recall_score, roc_auc_score,
 )
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.tree import DecisionTreeClassifier
@@ -35,10 +37,20 @@ def main():
             ("classifier", LogisticRegression(max_iter=3000, random_state=SEED)),
         ]),
         "Decision Tree": DecisionTreeClassifier(random_state=SEED),
+        "k-Nearest Neighbors": Pipeline([
+            ("scaler", StandardScaler()),
+            ("classifier", KNeighborsClassifier(n_neighbors=7)),
+        ]),
+        "Gaussian Naive Bayes": Pipeline([
+            ("scaler", StandardScaler()),
+            ("classifier", GaussianNB()),
+        ]),
     }
     filenames = {
         "Logistic Regression": "logistic_regression.joblib",
         "Decision Tree": "decision_tree.joblib",
+        "k-Nearest Neighbors": "knn.joblib",
+        "Gaussian Naive Bayes": "gaussian_nb.joblib",
     }
 
     model_dir = ROOT / "model"

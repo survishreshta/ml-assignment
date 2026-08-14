@@ -28,7 +28,9 @@
   ],
   "model_files": {
     "Logistic Regression": "logistic_regression.joblib",
-    "Decision Tree": "decision_tree.joblib"
+    "Decision Tree": "decision_tree.joblib",
+    "k-Nearest Neighbors": "knn.joblib",
+    "Gaussian Naive Bayes": "gaussian_nb.joblib"
   },
   "metrics": {
     "Logistic Regression": {
@@ -46,6 +48,22 @@
       "Recall": 0.9087690296842409,
       "F1": 0.9084927224045464,
       "MCC": 0.869058835971552
+    },
+    "k-Nearest Neighbors": {
+      "Accuracy": 0.9136981270657363,
+      "AUC": 0.9857715945565297,
+      "Precision": 0.9289806739352856,
+      "Recall": 0.9245154189614233,
+      "F1": 0.9265320936551327,
+      "MCC": 0.8956400885344324
+    },
+    "Gaussian Naive Bayes": {
+      "Accuracy": 0.8979067205288285,
+      "AUC": 0.9916140133662351,
+      "Precision": 0.9112374978297467,
+      "Recall": 0.9092384546214823,
+      "F1": 0.9091099074457399,
+      "MCC": 0.8772632840842779
     }
   },
   "split": {
