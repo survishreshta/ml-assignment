@@ -30,7 +30,8 @@
     "Logistic Regression": "logistic_regression.joblib",
     "Decision Tree": "decision_tree.joblib",
     "k-Nearest Neighbors": "knn.joblib",
-    "Gaussian Naive Bayes": "gaussian_nb.joblib"
+    "Gaussian Naive Bayes": "gaussian_nb.joblib",
+    "Random Forest (Ensemble)": "random_forest.joblib"
   },
   "metrics": {
     "Logistic Regression": {
@@ -64,6 +65,14 @@
       "Recall": 0.9092384546214823,
       "F1": 0.9091099074457399,
       "MCC": 0.8772632840842779
+    },
+    "Random Forest (Ensemble)": {
+      "Accuracy": 0.9232464193903782,
+      "AUC": 0.993243722658636,
+      "Precision": 0.9370827875467588,
+      "Recall": 0.9336173844661416,
+      "F1": 0.9352500246062349,
+      "MCC": 0.9071666338777977
     }
   },
   "split": {

@@ -1,10 +1,11 @@
-"""Train and evaluate four Dry Bean classification models."""
+"""Train and evaluate five Dry Bean classification models."""
 
 from pathlib import Path
 import json
 
 import joblib
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score, f1_score, matthews_corrcoef, precision_score,
@@ -45,12 +46,18 @@ def main():
             ("scaler", StandardScaler()),
             ("classifier", GaussianNB()),
         ]),
+        "Random Forest (Ensemble)": RandomForestClassifier(
+            n_estimators=250,
+            random_state=SEED,
+            n_jobs=-1,
+        ),
     }
     filenames = {
         "Logistic Regression": "logistic_regression.joblib",
         "Decision Tree": "decision_tree.joblib",
         "k-Nearest Neighbors": "knn.joblib",
         "Gaussian Naive Bayes": "gaussian_nb.joblib",
+        "Random Forest (Ensemble)": "random_forest.joblib",
     }
 
     model_dir = ROOT / "model"
