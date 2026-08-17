@@ -1,4 +1,4 @@
-# BeanScope ML Lab
+# BeanScope ML 
 
 BeanScope is an end-to-end multiclass machine-learning project for identifying dry bean varieties from geometric measurements. It includes reproducible model training, six saved classification pipelines, a held-out test dataset, and an interactive Streamlit application for live prediction and evaluation.
 
